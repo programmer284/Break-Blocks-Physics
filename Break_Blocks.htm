@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<title>Break Blocks</title>
+<style>
+canvas{
+	border:thin solid;
+}
+</style>
+</head>
+<body>
+<!--
+A / left - move left
+D / right - move right
+S / down - brake
+-->
+<canvas id="canvas" width="1000px" height="780px" ></canvas>
+<div name="menu" style="position:absolute;left:1050px;top:10px">
+<div style="height:400px;overflow:auto"> <!--wrapper-->
+<p>
+<h3>Custom Values</h3>
+<b>Mechanics:</b><br>
+Push Force (1~100): <input id="pushForceInp" type="number" min="1" max="100" value="5"/> x0.1<br>
+Brake Force (1~1000): <input id="brakeForceInp" type="number" min="1" max="1000" value="10"/> x0.01<br>
+Brake Type:<br>
+<form id="brakeType" data-selected="1">
+<input type="radio" name="brakeType" onclick="javascript:document.getElementById('brakeType').dataset.selected='0'"/>&nbsp;dry<br>
+<input type="radio" name="brakeType" onclick="javascript:document.getElementById('brakeType').dataset.selected='1'" checked/>&nbsp;viscous
+</form><br>
+Ball Mass (1~100): <input id="ballMassInp" type="number" min="1" max="100" value="10"/>
+</p>
+<p>
+<b>Electromagnetics:</b><br>
+Voltage (0~1000000): <input id="voltageInp" type="number" min="0" max="1000000" value="10000"/><br>
+<input id="dischargeOnPlatform" type="checkbox" checked>&nbsp;discharge when touching Platform<br>
+<input id="dischargeOnBlocks" type="checkbox" checked>&nbsp;discharge when touching Blocks<br>
+Starter Charge (ball):
+<form id="starterCharge" data-selected="1">
+<input type="radio" name="starterCharge" onclick="javascript:document.getElementById('starterCharge').dataset.selected='0'"/>&nbsp;negative&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="starterCharge" onclick="javascript:document.getElementById('starterCharge').dataset.selected='1'" checked/>&nbsp;neutral&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="starterCharge" onclick="javascript:document.getElementById('starterCharge').dataset.selected='2'" />&nbsp;positive&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="starterCharge" onclick="javascript:document.getElementById('starterCharge').dataset.selected='3'" />&nbsp;random
+</form><br>
+Magnetic Field Density (-100~100): <input id="magFieldDensityInp" type="number" min="-100" max="100" value="0"/>&nbsp;(negative=into screen)<br>
+</p>
+<p>
+<b>Quantum mechanics:</b><br>
+<input id="isGrid" type="checkbox">&nbsp;Grid (one way up)<br>
+<input id="isDetector1" type="checkbox" disabled>&nbsp;Upper Detector<br>
+<input id="isDetector2" type="checkbox" disabled>&nbsp;Lower Detector<br>
+Upper Detector Position (-200 ~ 100): <input id="detector1PosInp" type="number" min="-200" max="100" value="0"><br>
+Grid Constant (1~100000): <input id="gridConstantInp" type="number" min="1" max="100000" value="100"> x10<sup>-39</sup><br>
+Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000" value="100"> x10<sup>-38</sup>
+</p>
+</div>
+<hr>
+<h3>Weblinks</h3>
+<p><a href="./other_sites/Changelogs.html" target="_blank">Changelogs</a></p>
+<p><a href="./other_sites/Tutorial.html" target="_blank">Tutorial</a></p>
+<hr>
+<p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
+<p id="endMessage" style="zoom:3">&nbsp;</p>
+</div>
+<div style="position:absolute;left:10px;top:800px;width:98%"><button id="leftBtn" style="width:20%;zoom:2.5">&lt;</button>&nbsp;<button id="downBtn" style="width:56%;zoom:2.5">_</button>&nbsp;<button id="rightBtn" style="width:20%;zoom:2.5">&gt;</div>
+<script>document.body.style.zoom=''+Math.min(screen.width/1600,screen.height/1000)</script>
+<script src="_init_.js"></script>
+<script src="_mainScript_.js"></script>
+</body>
+</html>
