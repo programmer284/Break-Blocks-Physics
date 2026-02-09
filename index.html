@@ -61,11 +61,12 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
 <p id="endMessage" style="zoom:3">&nbsp;</p>
 </div>
-<div style="position:absolute;left:10px;top:800px;width:98%"><button id="leftBtn" style="width:20%;zoom:2.5">&lt;</button>&nbsp;<button id="downBtn" style="width:56%;zoom:2.5">_</button>&nbsp;<button id="rightBtn" style="width:20%;zoom:2.5">&gt;</div>
+<div style="position:absolute;left:10px;top:800px;width:98%"><span id="leftBtn" class="smallBtn">&lt;</span>&nbsp;<span id="downBtn" class="bigBtn" style="left:130px;top:0px">_</span>&nbsp;<div id="rightBtn" class="smallBtn" style="left:486px;top:0px">&gt;</span></div>
 <script>document.body.style.zoom=''+Math.min(screen.width/1600,screen.height/1000)</script>
 <script src="./init.js"></script>
 <script src="./mainscript.js"></script>
 </body>
 
 </html>
+
 
