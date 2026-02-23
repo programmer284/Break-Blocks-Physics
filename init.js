@@ -203,19 +203,24 @@ Comp.prototype.getTypes=function(){return ['img','circ','rect','text']};
 //
 
 //update
+let lastTime;
 function updateCanv(ts){
-	ctx.clearRect(0,0,canv.width,canv.height);
-	objects.forEach((el)=>{
-		el.physics.a.x=Object.values(el.physics.forces).length ? (Object.values(el.physics.forces).map((e)=>e.x).reduce((e,f)=>e+f))/el.physics.m : 0
-		el.physics.a.y=Object.values(el.physics.forces).length ? (Object.values(el.physics.forces).map((e)=>e.y).reduce((e,f)=>e+f))/el.physics.m : 0
-		el.physics.v.x+=el?.physics?.a?.x ?? 0
-		el.physics.v.y+=el?.physics?.a?.y ?? 0
-		el?.moveHor(el?.physics?.v?.x ?? 0)
-		el?.moveVer(el?.physics?.v?.y ?? 0)
-	});
-	objects.forEach((el)=>{try{el?.refresh()}catch(e){}});
+	if(ts-(lastTime ?? 0) >=10 ){
+		lastTime=ts
+		ctx.clearRect(0,0,canv.width,canv.height);
+		objects.forEach((el)=>{
+			el.physics.a.x=Object.values(el.physics.forces).length ? (Object.values(el.physics.forces).map((e)=>e.x).reduce((e,f)=>e+f))/el.physics.m : 0
+			el.physics.a.y=Object.values(el.physics.forces).length ? (Object.values(el.physics.forces).map((e)=>e.y).reduce((e,f)=>e+f))/el.physics.m : 0
+			el.physics.v.x+=el?.physics?.a?.x ?? 0
+			el.physics.v.y+=el?.physics?.a?.y ?? 0
+			el?.moveHor(el?.physics?.v?.x ?? 0)
+			el?.moveVer(el?.physics?.v?.y ?? 0)
+		});
+		objects.forEach((el)=>{try{el?.refresh()}catch(e){}});
+	}
 	requestAnimationFrame(updateCanv)
 }
 requestAnimationFrame(updateCanv)
 //
+
 
