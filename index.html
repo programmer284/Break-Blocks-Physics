@@ -3,12 +3,17 @@
 <head>
 <title>Break Blocks</title>
 <style>
+body{
+    user-select:none;
+	-webkit-user-select:none;
+}
 canvas{
 	border:thin solid;
 }
 .controlBtn{
 	user-select:none;
 	-webkit-user-select:none;
+	touch-action:none;
 	position:absolute;
 	border:thin solid;
 	text-align:center;
@@ -90,6 +95,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
