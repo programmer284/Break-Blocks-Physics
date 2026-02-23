@@ -126,8 +126,8 @@ function updGame(){
 	}
 	if(ball.touches(player)&&ball.physics.v.y>0){ //hitting platform
 		ball.physics.v.y=-ball.physics.v.y
-		if(ball.physics.v.y<17){
-			ball.physics.v.y--
+		if(ball.physics.v.y<100){
+			ball.physics.v.y-=4
 		}
 		ball.physics.v.x+=0.4*player.physics.v.x
 	}
@@ -306,6 +306,7 @@ document.getElementById('rightBtn').addEventListener('pointerdown',()=>{
 document.getElementById('rightBtn').addEventListener('pointerup',()=>{
 	keyEvents[39]=false
 })
+
 
 
 
