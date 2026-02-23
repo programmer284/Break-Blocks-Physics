@@ -17,11 +17,11 @@ canvas{
 	position:absolute;
 	border:thin solid;
 	text-align:center;
-	font-size:30px;
+	font-size:50px;
 	padding-top:40px;
 	top:800px;
 	width:100px;
-	height:45px;
+	height:60px;
 	display:none;
 }
 </style>
@@ -81,9 +81,9 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
 <p id="endMessage" style="zoom:3">&nbsp;</p>
 </div>
-<div id="leftBtn" class="controlBtn" style="left:10px">&lt;</div>
-<div id="downBtn" class="controlBtn" style="left:1340px;width:200px">_</div>
-<div id="rightBtn" class="controlBtn" style="left:120px">&gt;</div>
+<div id="leftBtn" class="controlBtn" style="left:10px"><b>&lt;</b></div>
+<div id="downBtn" class="controlBtn" style="left:1340px;width:200px"><b>_</b></div>
+<div id="rightBtn" class="controlBtn" style="left:120px"><b>&gt;</b></div>
 <script>setInterval(()=>{document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/(document.getElementById('isMobileControls').checked ? 1000 : 850))})</script>
 <script>
 document.getElementById('isMobileControls').addEventListener('change',function(){
@@ -96,6 +96,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
