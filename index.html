@@ -15,6 +15,7 @@ canvas{
 	top:800px;
 	width:100px;
 	height:60px;
+	display:none;
 }
 </style>
 </head>
@@ -68,7 +69,7 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <p><a href="./other_sites/Changelogs.html" target="_blank">Changelogs</a></p>
 <p><a href="./other_sites/Tutorial.html" target="_blank">Tutorial</a></p>
 <hr>
-<p><input type="checkbox" id="isMobileControls" checked/>&nbsp;Mobile Controls</p>
+<p><input type="checkbox" id="isMobileControls"/>&nbsp;Mobile Controls</p>
 <hr>
 <p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
 <p id="endMessage" style="zoom:3">&nbsp;</p>
@@ -88,6 +89,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
