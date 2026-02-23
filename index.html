@@ -68,16 +68,26 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <p><a href="./other_sites/Changelogs.html" target="_blank">Changelogs</a></p>
 <p><a href="./other_sites/Tutorial.html" target="_blank">Tutorial</a></p>
 <hr>
+<p><input type="checkbox" id="isMobileControls" checked/>&nbsp;Mobile Controls</p>
+<hr>
 <p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
 <p id="endMessage" style="zoom:3">&nbsp;</p>
 </div>
 <div id="leftBtn" class="controlBtn" style="left:10px">&lt;</div>
 <div id="downBtn" class="controlBtn" style="left:1340px;width:200px">_</div>
 <div id="rightBtn" class="controlBtn" style="left:120px">&gt;</div>
-<script>setInterval(()=>{document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/1000)})</script>	
+<script>setInterval(()=>{document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/1000)})</script>
+<script>
+document.getElementById('isMobileControls').addEventListener('change',function(){
+	for(let e of document.querySelectorAll('.controlBtn')){
+		e.style.display=this.checked ? 'block' : 'none'
+	}
+})
+</script>
 <script src="./init.js"></script>
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
