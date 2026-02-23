@@ -203,7 +203,7 @@ Comp.prototype.getTypes=function(){return ['img','circ','rect','text']};
 //
 
 //update
-let updateCanv=setInterval(()=>{
+function updateCanv(ts){
 	ctx.clearRect(0,0,canv.width,canv.height);
 	objects.forEach((el)=>{
 		el.physics.a.x=Object.values(el.physics.forces).length ? (Object.values(el.physics.forces).map((e)=>e.x).reduce((e,f)=>e+f))/el.physics.m : 0
@@ -214,5 +214,8 @@ let updateCanv=setInterval(()=>{
 		el?.moveVer(el?.physics?.v?.y ?? 0)
 	});
 	objects.forEach((el)=>{try{el?.refresh()}catch(e){}});
-},10)
+	requestAnimationFrame(updateCanv)
+}
+requestAnimationFrame(updateCanv)
 //
+
