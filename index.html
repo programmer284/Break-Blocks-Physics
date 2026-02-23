@@ -77,7 +77,13 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <div id="leftBtn" class="controlBtn" style="left:10px">&lt;</div>
 <div id="downBtn" class="controlBtn" style="left:1340px;width:200px">_</div>
 <div id="rightBtn" class="controlBtn" style="left:120px">&gt;</div>
-<script>setInterval(()=>{document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/(document.getElementById('isMobileControls').checked ? 1000 : 850))})</script>
+<script>
+function updateZoom(ts){
+	document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/(document.getElementById('isMobileControls').checked ? 1000 : 850))
+	requestAnimationFrame(updateZoom)
+}
+requestAnimationFrame(updateZoom)
+</script>
 <script>
 document.getElementById('isMobileControls').addEventListener('change',function(){
 	for(let e of document.querySelectorAll('.controlBtn')){
@@ -89,6 +95,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
