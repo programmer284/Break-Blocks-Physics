@@ -14,7 +14,7 @@ var ball=new Comp({x:canv.width/2,y:680,width:20,height:20,color:'#00ff00'})
 ball.physics.m=10
 var voltage=10000
 var brakeType=1
-var pushForce=10
+var pushForce=15
 var brakeForce=10
 var magFieldDensity=0
 var gridConstant=100 // *1e-39
@@ -82,7 +82,7 @@ function updGame(){
 			ball.color='#00ff00' //neutral
 			break;
 	}
-	ball.physics.applyForce('F_G',0,0.1*ball.physics.m) //gravity force
+	ball.physics.applyForce('F_G',0,0.3*ball.physics.m) //gravity force
 	ball.physics.applyForce('F_el',ball.physics.q*(voltage/canv.width),0) //electric force
 	ball.physics.applyForce('F_L',-ball.physics.q*ball.physics.v.y*magFieldDensity,ball.physics.q*ball.physics.v.x*magFieldDensity) //Lorentz force
 	if(ball.touches(grid) && ball.visible && grid.visible && ball.physics.v.y<0){ //interference
@@ -306,5 +306,6 @@ document.getElementById('rightBtn').addEventListener('pointerdown',()=>{
 document.getElementById('rightBtn').addEventListener('pointerup',()=>{
 	keyEvents[39]=false
 })
+
 
 
