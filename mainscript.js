@@ -82,7 +82,7 @@ function updGame(){
 			ball.color='#00ff00' //neutral
 			break;
 	}
-	ball.physics.applyForce('F_G',0,0.3*ball.physics.m) //gravity force
+	ball.physics.applyForce('F_G',0,0.15*ball.physics.m) //gravity force
 	ball.physics.applyForce('F_el',ball.physics.q*(voltage/canv.width),0) //electric force
 	ball.physics.applyForce('F_L',-ball.physics.q*ball.physics.v.y*magFieldDensity,ball.physics.q*ball.physics.v.x*magFieldDensity) //Lorentz force
 	if(ball.touches(grid) && ball.visible && grid.visible && ball.physics.v.y<0){ //interference
@@ -306,6 +306,7 @@ document.getElementById('rightBtn').addEventListener('pointerdown',()=>{
 document.getElementById('rightBtn').addEventListener('pointerup',()=>{
 	keyEvents[39]=false
 })
+
 
 
 
