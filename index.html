@@ -10,6 +10,8 @@ body{
 }
 canvas{
 	border:thin solid;
+	position:absolute;
+	left:calc(50vw+250px);
 }
 .controlBtn{
 	user-select:none;
@@ -34,7 +36,7 @@ D / right - move right
 S / down - brake
 -->
 <canvas id="canvas" width="1000px" height="780px" ></canvas>
-<div name="menu" style="position:absolute;left:1050px;top:10px">
+<div name="menu" style="position:absolute;left:calc(50vw+300px);top:10px">
 <div style="height:400px;overflow:auto"> <!--wrapper-->
 <p>
 <h3>Custom Values</h3>
@@ -97,6 +99,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
