@@ -11,7 +11,6 @@ body{
 canvas{
 	border:thin solid;
 	position:absolute;
-	left:6.25vw;
 }
 .controlBtn{
 	user-select:none;
@@ -36,7 +35,7 @@ D / right - move right
 S / down - brake
 -->
 <canvas id="canvas" width="1000px" height="780px" ></canvas>
-<div name="menu" style="position:absolute;left:calc(6.25vw + 1050px);top:10px">
+<div id="menu" style="position:absolute;left:1050px;top:10px;width:450px">
 <div style="height:400px;overflow:auto"> <!--wrapper-->
 <p>
 <h3>Custom Values</h3>
@@ -87,7 +86,15 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <div id="leftBtn" class="controlBtn" style="left:10px"><b>&larr;</b></div>
 <div id="downBtn" class="controlBtn" style="right:10px;width:300px"><b>&darr;</b></div>
 <div id="rightBtn" class="controlBtn" style="left:170px"><b>&rarr;</b></div>
-<script>setInterval(()=>{document.body.style.zoom=''+Math.min(innerWidth/1600,innerHeight/(document.getElementById('isMobileControls').checked ? 1000 : 850))})</script>
+<script>
+setInterval(()=>{
+	let zoomFact=Math.min(innerWidth/1600,innerHeight/(document.getElementById('isMobileControls').checked ? 1000 : 850))
+	document.body.style.zoom=''+zoomFact
+	let leftMargin=(innerWidth-1500*zoomFact)/2
+	document.getElementById('canvas').style.left=leftMargin+'px'
+	document.getElementById('menu').style.left=(leftMargin+1050)+'px'
+})
+</script>
 <script>
 document.getElementById('isMobileControls').addEventListener('change',function(){
 	for(let e of document.querySelectorAll('.controlBtn')){
@@ -99,6 +106,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
