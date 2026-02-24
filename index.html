@@ -8,11 +8,6 @@ body{
     user-select:none;
 	-webkit-user-select:none;
 }
-#container{
-	margin-left:auto;
-	margin-right:auto;
-	text-align:center;
-}
 canvas{
 	border:thin solid;
 }
@@ -38,7 +33,6 @@ A / left - move left
 D / right - move right
 S / down - brake
 -->
-<div id="container">
 <canvas id="canvas" width="1000px" height="780px" ></canvas>
 <div name="menu" style="position:absolute;left:1050px;top:10px">
 <div style="height:400px;overflow:auto"> <!--wrapper-->
@@ -88,7 +82,6 @@ Gap Width (1~100000): <input id="gapWidthInp" type="number" min="1" max="100000"
 <p><button id="startGame" style="zoom:3">Start</button>&nbsp;&nbsp;<button id="endGame" style="zoom:3">End Game</button></p>
 <p id="endMessage" style="zoom:3">&nbsp;</p>
 </div>
-</div>
 <div id="leftBtn" class="controlBtn" style="left:10px"><b>&larr;</b></div>
 <div id="downBtn" class="controlBtn" style="right:10px;width:300px"><b>&darr;</b></div>
 <div id="rightBtn" class="controlBtn" style="left:170px"><b>&rarr;</b></div>
@@ -104,6 +97,7 @@ document.getElementById('isMobileControls').addEventListener('change',function()
 <script src="./mainscript.js"></script>
 </body>
 </html>
+
 
 
 
